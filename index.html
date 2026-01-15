@@ -11,52 +11,33 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:linear-gradient(180deg,#f3eefe,#eaf6ff);color:#222}
 
-/* +18 */
-#ageModal{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:2000}
-.age-box{background:#fff;padding:36px;border-radius:30px;text-align:center;max-width:340px}
-.age-box button{margin:10px;padding:12px 28px;border:none;border-radius:999px;cursor:pointer;font-weight:700}
-.age-yes{background:#111;color:#fff}.age-no{background:#eee}
-
-/* PROMO */
-#promoModal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:1500}
-.promo-box{
-background:linear-gradient(135deg,#ff5fa2,#ffb36c);
-padding:60px;
-border-radius:50px;
-text-align:center;
-max-width:480px;
-box-shadow:0 40px 80px rgba(0,0,0,.4);
-position:relative;
-font-family:'Poppins'
-}
-.promo-box h2{font-size:2.6rem;font-weight:800}
-.promo-box p{font-size:1.3rem;margin-top:10px}
-.promo-close{position:absolute;top:18px;right:26px;font-size:1.8rem;cursor:pointer;font-weight:800}
-
 /* HEADER */
 header{
-background:rgba(255,255,255,.8);
+background:rgba(255,255,255,.85);
 backdrop-filter:blur(12px);
-padding:18px 28px;
+padding:16px 24px;
 display:flex;
 justify-content:space-between;
 align-items:center
 }
-header h1{font-size:1.6rem;font-weight:700}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{
+width:52px;
+height:52px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 6px 16px rgba(0,0,0,.25)
+}
+.brand h1{font-size:1.6rem;font-weight:800}
 .top-links{display:flex;gap:20px}
 .top-links a{cursor:pointer;font-weight:700}
 
-/* BANNER SUPERIOR */
-.top-banner{
-width:100%;
-padding:20px 36px
-}
+/* BANNER */
 .top-banner img{
 width:100%;
 max-height:140px;
 object-fit:cover;
-border-radius:22px;
-box-shadow:0 18px 30px rgba(0,0,0,.18)
+border-radius:0 0 30px 30px
 }
 
 /* LAYOUT */
@@ -70,7 +51,6 @@ display:flex;
 flex-direction:column;
 gap:22px
 }
-.sidebar h4{font-size:.75rem;font-weight:700;color:#666}
 .sidebar select,.sidebar a{
 height:46px;
 border:none;
@@ -80,10 +60,9 @@ box-shadow:0 8px 18px rgba(0,0,0,.12);
 display:flex;
 align-items:center;
 justify-content:center;
+font-weight:700;
 text-decoration:none;
-color:#111;
-font-size:.85rem;
-font-weight:600
+color:#111
 }
 
 /* PRODUCTS */
@@ -94,101 +73,87 @@ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:44px
 }
 
-/* PRODUCT CARD */
+/* PRODUCT */
 .product{
-position:relative;
-padding:26px 24px 30px;
-border-radius:44px;
+padding:24px;
+border-radius:36px;
 background:
 radial-gradient(circle at top left,rgba(255,180,215,.7),transparent 60%),
 radial-gradient(circle at bottom right,rgba(170,215,255,.7),transparent 60%);
-filter:drop-shadow(0 24px 38px rgba(0,0,0,.15))
+box-shadow:0 24px 38px rgba(0,0,0,.15)
 }
-.product img{
-width:100%;
-height:180px;
-object-fit:contain;
-margin-bottom:14px;
-filter:drop-shadow(0 18px 26px rgba(0,0,0,.3))
-}
-.product h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
-.price{font-size:.85rem;font-weight:700;margin-bottom:10px}
+.product img{width:100%;height:160px;object-fit:contain}
+.product h3{font-size:.9rem;margin:8px 0}
+.price{font-weight:800}
 
-/* BADGE */
-.badge{
-position:absolute;
-top:18px;
-left:-12px;
-background:linear-gradient(135deg,#ff4d4d,#ff9f43);
-color:#fff;
-padding:8px 18px;
-border-radius:0 999px 999px 0;
-font-size:.7rem;
-font-weight:800;
-transform:rotate(-6deg)
-}
-
-/* BUY BUTTONS */
-.buy-buttons{display:flex;gap:10px;margin-top:12px}
+.buy-buttons{display:flex;gap:10px;margin-top:10px}
 .buy-buttons a{
 flex:1;
-text-align:center;
 padding:10px;
 border-radius:999px;
-font-size:.75rem;
+text-align:center;
+color:#fff;
 font-weight:800;
 text-decoration:none;
-color:#fff
+font-size:.75rem
 }
 .buy-wpp{background:#25D366}
 .buy-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
 
-/* MOBILE */
-@media (max-width:768px){
-.top-banner{padding:14px}
-.top-banner img{max-height:110px}
-.products{grid-template-columns:repeat(3,1fr);gap:14px}
-.product{padding:16px;border-radius:26px}
-.product img{height:110px}
-.buy-buttons{flex-direction:column;gap:6px}
+/* TERMS */
+#termsModal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+z-index:9999
 }
+#termsModal .box{
+background:#fff;
+max-width:800px;
+margin:60px auto;
+padding:40px;
+border-radius:30px
+}
+.close{cursor:pointer;font-size:24px}
 
-footer{text-align:center;padding:28px;font-size:.8rem;color:#777}
+/* MOBILE */
+@media(max-width:768px){
+.products{grid-template-columns:repeat(3,1fr);gap:14px}
+.buy-buttons{flex-direction:column}
+}
 </style>
 </head>
 
 <body>
 
-<!-- +18 -->
-<div id="ageModal">
-  <div class="age-box">
-    <h2>🔞 Acceso restringido</h2>
-    <p>¿Sos mayor de 18 años?</p>
-    <button class="age-yes" onclick="okAge()">Sí</button>
-    <button class="age-no" onclick="noAge()">No</button>
-  </div>
-</div>
-
-<!-- PROMO -->
-<div id="promoModal">
-  <div class="promo-box">
-    <div class="promo-close" onclick="closePromo()">✕</div>
-    <h2>🚚 ENVÍOS GRATIS</h2>
-    <p>En compras mayores a <strong>$2.000</strong></p>
-  </div>
+<!-- BANNER -->
+<div class="top-banner">
+<img src="baner.png">
 </div>
 
 <header>
-  <h1>VaporcitoUy</h1>
+  <div class="brand">
+    <img src="vaporcito.jpeg">
+    <h1>VaporcitoUy</h1>
+  </div>
   <div class="top-links">
     <a onclick="openTerms()">Términos</a>
     <a onclick="alert('VaporcitoUy · Uruguay')">Nosotros</a>
   </div>
 </header>
 
-<!-- BANNER -->
-<div class="top-banner">
-  <img src="baner.png" alt="Ofertas VaporcitoUy">
+<div class="main">
+<div class="sidebar">
+<select onchange="filterProducts(this.value)">
+<option value="all">Todas</option>
+<option value="elfbar">Elfbar</option>
+<option value="ignite">Ignite</option>
+<option value="legendzero">Legend Zero</option>
+<option value="legacy30k">Bali Legacy</option>
+</select>
+<a href="https://wa.me/59892359460">WhatsApp</a>
+<a href="https://instagram.com/vaporcitouy">Instagram</a>
 </div>
 
 <div class="container">
@@ -440,16 +405,26 @@ footer{text-align:center;padding:28px;font-size:.8rem;color:#777}
 </div>
 </div>
 
-<script>
-function okAge(){localStorage.setItem("ageOK",true);document.getElementById("ageModal").style.display="none"}
-function noAge(){window.location.href="https://google.com"}
-if(localStorage.getItem("ageOK"))document.getElementById("ageModal").style.display="none";
-function closePromo(){document.getElementById("promoModal").style.display="none"}
-function filterProducts(b){document.querySelectorAll('.product').forEach(p=>{p.style.display=(b==='all'||p.dataset.brand===b)?'block':'none'})}
-function openTerms(){document.getElementById("termsModal").style.display="block"}
-function closeTerms(){document.getElementById("termsModal").style.display="none"}
-</script>
+<!-- TERMS -->
+<div id="termsModal">
+<div class="box">
+<div class="close" onclick="closeTerms()">✕</div>
+<h2>Términos y Condiciones</h2>
+<p>Venta solo a mayores de 18 años.</p>
+<p>Precios en pesos uruguayos.</p>
+<p>Uso bajo responsabilidad del cliente.</p>
+</div>
+</div>
 
+<script>
+function filterProducts(b){
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display=(b==='all'||p.dataset.brand===b)?'block':'none'
+})
+}
+function openTerms(){termsModal.style.display="block"}
+function closeTerms(){termsModal.style.display="none"}
+</script>
 
 </body>
 </html>
