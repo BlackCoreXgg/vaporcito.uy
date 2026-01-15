@@ -129,7 +129,7 @@ border-radius:30px
 
 <!-- BANNER -->
 <div class="top-banner">
-<img src="baner.png">
+<img src="https://drive.google.com/file/d/1gMO47BYQky2FpDPgBVRdz-D3wS_-W6uh/view?usp=drive_link">
 </div>
 
 <header>
@@ -417,13 +417,21 @@ border-radius:30px
 </div>
 
 <script>
+const termsModal = document.getElementById("termsModal");
+
 function filterProducts(b){
-document.querySelectorAll('.product').forEach(p=>{
-p.style.display=(b==='all'||p.dataset.brand===b)?'block':'none'
-})
+  document.querySelectorAll('.product').forEach(p=>{
+    p.style.display = (b==='all'||p.dataset.brand===b) ? 'block' : 'none';
+  });
 }
-function openTerms(){termsModal.style.display="block"}
-function closeTerms(){termsModal.style.display="none"}
+
+function openTerms(){
+  termsModal.style.display = "block";
+}
+
+function closeTerms(){
+  termsModal.style.display = "none";
+}
 </script>
 
 </body>
