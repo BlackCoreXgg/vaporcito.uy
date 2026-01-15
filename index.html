@@ -42,6 +42,8 @@ display:flex;
 justify-content:space-between;
 align-items:center
 }
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:38px;height:38px;object-fit:contain}
 header h1{font-size:1.6rem;font-weight:700}
 .top-links{display:flex;gap:20px}
 .top-links a{cursor:pointer;font-weight:700}
@@ -157,23 +159,12 @@ font-size:24px;
 cursor:pointer
 }
 
-/* ✅ MOBILE 3 COLUMNAS */
-@media (max-width: 768px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-  .product {
-    padding: 16px;
-    border-radius: 26px;
-  }
-  .product img {
-    height: 110px;
-  }
-  .buy-buttons {
-    flex-direction: column;
-    gap: 6px;
-  }
+/* MOBILE 3 COLUMNAS */
+@media (max-width:768px){
+.products{grid-template-columns:repeat(3,1fr);gap:14px}
+.product{padding:16px;border-radius:26px}
+.product img{height:110px}
+.buy-buttons{flex-direction:column;gap:6px}
 }
 
 footer{text-align:center;padding:28px;font-size:.8rem;color:#777}
@@ -181,6 +172,7 @@ footer{text-align:center;padding:28px;font-size:.8rem;color:#777}
 </head>
 
 <body>
+
 
 <!-- +18 -->
 <div id="ageModal">
@@ -485,6 +477,15 @@ function openTerms(){document.getElementById("termsModal").style.display="block"
 function closeTerms(){document.getElementById("termsModal").style.display="none"}
 </script>
 
+<script>
+function okAge(){localStorage.setItem("ageOK",true);document.getElementById("ageModal").style.display="none"}
+function noAge(){window.location.href="https://google.com"}
+if(localStorage.getItem("ageOK"))document.getElementById("ageModal").style.display="none";
+function closePromo(){document.getElementById("promoModal").style.display="none"}
+function filterProducts(b){document.querySelectorAll('.product').forEach(p=>{p.style.display=(b==='all'||p.dataset.brand===b)?'block':'none'})}
+function openTerms(){document.getElementById("termsModal").style.display="block"}
+function closeTerms(){document.getElementById("termsModal").style.display="none"}
+</script>
 
 </body>
 </html>
