@@ -29,11 +29,37 @@ body{background:linear-gradient(180deg,#f3eefe,#eaf6ff);color:#222}
 header{
 background:rgba(255,255,255,.85);
 backdrop-filter:blur(12px);
-padding:16px 24px;
+padding:12px 16px;
 display:flex;
 justify-content:space-between;
-align-items:center
+align-items:center;
+gap:12px;
+flex-wrap:nowrap;
 }
+
+/* Marca */
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+flex-shrink:0;
+}
+
+.brand img{
+width:44px;
+height:44px;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* Links */
+.top-links{
+display:flex;
+gap:14px;
+font-size:.85rem;
+white-space:nowrap;
+}
+
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{
 width:52px;
