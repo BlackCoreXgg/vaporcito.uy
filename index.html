@@ -180,11 +180,74 @@ border-radius:30px
   font-weight:900;
   color:#e60023;
 }
+/* MODAL VER MAS */
+.vermas-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+
+.vermas-box{
+  background:linear-gradient(160deg,#ffd1e8,#d9e9ff);
+  padding:26px;
+  border-radius:32px;
+  max-width:380px;
+  width:92%;
+  box-shadow:0 30px 60px rgba(0,0,0,.35);
+}
+
+.vermas-box h2{
+  font-size:1.2rem;
+  margin-bottom:10px;
+  font-weight:800;
+}
+
+.vermas-box ul{
+  padding-left:18px;
+  font-size:.85rem;
+}
+
+.vermas-box li{
+  margin-bottom:6px;
+}
+
+.vermas-close{
+  float:right;
+  font-size:1.4rem;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.ver-mas{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#6a5cff,#9f7cff);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  font-size:.8rem;
+}
 
 </style>
 </head>
 
 <body>
+
+<!-- MODAL VER MAS -->
+<div id="verMasModal" class="vermas-modal">
+  <div class="vermas-box">
+    <span class="vermas-close" onclick="cerrarVerMas()">✕</span>
+    <h2 id="verMasTitulo"></h2>
+    <div id="verMasContenido"></div>
+  </div>
+</div>
 
 <!-- CARTEL ENVÍOS GRATIS -->
 <div class="free-shipping">
@@ -230,6 +293,9 @@ border-radius:30px
 <h3>Banana Cake – Lost MaryTurbo15KPuffs</h3>
 <p class="old-price">Antes: $1.590</p>
 <p class="new-price">Ahora: $1.450</p>
+<button class="ver-mas" onclick="verMas('Banana Cake – Lost Mary Turbo 15K')">
+  Ver más
+</button>
 <div class="buy-buttons">
 <a class="buy-wpp" href="https://wa.me/59892359460?text=Hola,%20quiero%20el%20Bali%20Legacy%20Strawberry%20Watermelon" target="_blank">WhatsApp</a>
 <a class="buy-ig" href="https://www.instagram.com/vaporcitouy/" target="_blank">Instagram</a>
@@ -241,6 +307,9 @@ border-radius:30px
 <h3>Baja Splash – Lost MaryTurbo15KPuffs</h3>
 <p class="old-price">Antes: $1.590</p>
 <p class="new-price">Ahora: $1.450</p>
+<button class="ver-mas" onclick="verMas('Baja Splash – Lost Mary Turbo 15K')">
+  Ver más
+</button>
 <div class="buy-buttons">
 <a class="buy-wpp" href="https://wa.me/59892359460?text=Hola,%20quiero%20el%20Bali%20Legacy%20Strawberry%20Watermelon" target="_blank">WhatsApp</a>
 <a class="buy-ig" href="https://www.instagram.com/vaporcitouy/" target="_blank">Instagram</a>
@@ -252,6 +321,9 @@ border-radius:30px
 <h3>Cherry Strazz – Lost MaryTurbo15KPuffs</h3>
 <p class="old-price">Antes: $1.590</p>
 <p class="new-price">Ahora: $1.450</p>
+<button class="ver-mas" onclick="verMas('Cherry Strazze – Lost Mary Turbo 15K')">
+  Ver más
+</button>
 <div class="buy-buttons">
 <a class="buy-wpp" href="https://wa.me/59892359460?text=Hola,%20quiero%20el%20Bali%20Legacy%20Strawberry%20Watermelon" target="_blank">WhatsApp</a>
 <a class="buy-ig" href="https://www.instagram.com/vaporcitouy/" target="_blank">Instagram</a>
@@ -263,6 +335,9 @@ border-radius:30px
 <h3>DR Cherry – Lost MaryTurbo15KPuffs</h3>
 <p class="old-price">Antes: $1.590</p>
 <p class="new-price">Ahora: $1.450</p>
+<button class="ver-mas" onclick="verMas('DR Cherry – Lost Mary Turbo 15K')">
+  Ver más
+</button>
 <div class="buy-buttons">
 <a class="buy-wpp" href="https://wa.me/59892359460?text=Hola,%20quiero%20el%20Bali%20Legacy%20Strawberry%20Watermelon" target="_blank">WhatsApp</a>
 <a class="buy-ig" href="https://www.instagram.com/vaporcitouy/" target="_blank">Instagram</a>
@@ -274,6 +349,9 @@ border-radius:30px
 <h3>Winter Mint – Lost MaryTurbo15KPuffs</h3>
 <p class="old-price">Antes: $1.590</p>
 <p class="new-price">Ahora: $1.450</p>
+<button class="ver-mas" onclick="verMas('Winter Mint – Lost Mary Turbo 15K')">
+  Ver más
+</button>
 <div class="buy-buttons">
 <a class="buy-wpp" href="https://wa.me/59892359460?text=Hola,%20quiero%20el%20Bali%20Legacy%20Strawberry%20Watermelon" target="_blank">WhatsApp</a>
 <a class="buy-ig" href="https://www.instagram.com/vaporcitouy/" target="_blank">Instagram</a>
@@ -560,6 +638,25 @@ function openTerms(){
 function closeTerms(){
   termsModal.style.display = "none";
 }
+
+function verMas(titulo){
+  document.getElementById("verMasTitulo").innerText = titulo;
+  document.getElementById("verMasContenido").innerHTML = `
+    <ul>
+      <li>🔥 Hasta 15.000 bocanadas</li>
+      <li>⚡ Modo Turbo y Suave</li>
+      <li>🔋 Batería recargable USB-C</li>
+      <li>💧 Capacidad 16ml</li>
+      <li>📊 Pantalla inteligente</li>
+    </ul>
+  `;
+  document.getElementById("verMasModal").style.display = "flex";
+}
+
+function cerrarVerMas(){
+  document.getElementById("verMasModal").style.display = "none";
+}
+
 </script>
 
 </body>
